@@ -1,0 +1,14 @@
+<div>
+    <button type="button" class="close" aria-label="Close" data-ng-click="modalOptions.close()"><span> x </span></button>
+    <h1 class="model-heading">Thank you</h1>
+    <div class="modal-body assetIT-main-feedback_thankyou_block text-center">
+        <i class="icon-check-ok-lg"></i>
+        <h4 class="text-center">Asset Management Platform</h4>
+        <p ng-if="status==1">Application Certify</p>
+        <p ng-if="status==0">Application Rejected</p>
+        <p>{{certifyStatus.message}}</p>
+    </div>
+    <div class="text-right">
+        <button class="btn btn-default" data-ng-click="modalOptions.close()">Close</button>
+    </div>
+</div>

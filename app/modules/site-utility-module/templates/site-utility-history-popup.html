@@ -1,0 +1,17 @@
+<button type="button" class="close" aria-label="Close" data-ng-click="modalOptions.close()"><span>×</span></button>
+<h1 class="model-heading">Version History Details</h1>
+<div class="form-group" >
+    <div class="row">
+        <div  class="col-xs-12 col-sm-12 col-md-12 col-lg-6" ng-repeat="(key, value) in modalOptions.rowData" style="margin-bottom: 5px;" ng-if="'parent' != key && '_$$hashKey'!=key && 'uid'!=key && typeof(key) != 'function' && key != 'uid' && key != '_events'">
+            <div class="col-xs-6 comment-content-wrap">
+                <strong>{{cols[key] ? cols[key] : key}}</strong>
+            </div>
+            <div class="col-xs-6">
+                {{value}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-right">
+    <button class="btn btn-default" data-ng-click="modalOptions.close()">Cancel</button>
+</div>

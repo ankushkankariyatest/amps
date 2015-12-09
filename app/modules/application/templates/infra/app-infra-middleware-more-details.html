@@ -1,0 +1,39 @@
+﻿<button type="button" class="close" aria-label="Close" data-ng-click="modalOptions.close()"><span>×</span></button>
+<h1 class="model-heading">Infrastructure Type More Details</h1>
+<div class="form-group" >
+    <table class="infrastructure-detail">
+        <tr>
+            <td>Domain</td>
+            <td>{{infraEnvDetails.domain }}</td>
+        </tr>
+        <tr>
+            <td>
+                Details of Servers
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Server ID</th>
+                <!--<th>Domain Name</th>-->
+                <th>Host Name</th>
+                <th>Server Name</th>
+                <!--<th>System Name</th>-->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="detail in infraEnvDetails.servers">
+                <td>{{detail.serverID}}</td>
+                <!--<td>{{detail.domainName}}</td>-->
+                <td>{{detail.hostName}}</td>
+                <td>{{detail.serverName}}</td>
+                <!--<td>{{detail.systemName}}</td>-->
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-right">
+    <button class="btn btn-default" data-ng-click="modalOptions.close()">Cancel</button>
+</div>

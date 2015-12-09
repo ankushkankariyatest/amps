@@ -1,0 +1,13 @@
+<div ng-if="!data.isSuccess">
+    <div class="row assetIT-main-app_details_block">
+        <div class="col-md-12 col-sm-8">
+            {{data.message}}
+        </div>
+    </div>
+</div>
+<div ng-if="data.isSuccess" ng-repeat="step in [{'SerialNumber':'App ID'}, {'BEName':'BEName'}, {'Description':'Description'}]">
+    <div class="row assetIT-main-app_details_block" ng-repeat="(key, value) in step">
+        <div class="col-md-2 col-sm-4"><label>{{value}}: </label></div>
+        <div class="col-md-10 col-sm-4"><a ng-if="'SerialNumber' == key" ng-href="#/applications/{{data[key]}}">{{data[key]}}</a> <span ng-if="'SerialNumber' != key"> {{data[key]}}</span></div>
+    </div>
+</div>

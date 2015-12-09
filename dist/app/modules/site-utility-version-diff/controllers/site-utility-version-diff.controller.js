@@ -1,0 +1,1 @@
+!function(){define(["assetIt","version-compare-directive","kendo.all.min","versionService"],function(e){e.register.controller("siteUtilityVersionDiffController",["versionService",function(e,i){}])})}();

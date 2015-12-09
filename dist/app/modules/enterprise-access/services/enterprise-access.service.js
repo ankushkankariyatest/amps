@@ -1,0 +1,1 @@
+!function(){"use strict";define(["assetIt","ajax-service"],function(e){e.register.factory("enterpriseAccessService",["ajaxService","configUrl",function(t,r){var e={},s=r.secureUrl+"sendEnterpriseRequest";return e.sendEnterpriseAccessRequest=function(e){var r={method:"post",url:s,data:e};return t.httpSimulatePost(r)},e}])})}();

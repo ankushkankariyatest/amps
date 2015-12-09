@@ -1,0 +1,1 @@
+!function(){"use strict";define(["assetIt","ajax-service"],function(e){e.register.factory("feedbackListService",["ajaxService","configUrl",function(t,r){var e={};return e.getFeedbacks=function(){var e={method:"GET",url:"allfeedback"};return t.http(e)},e}])})}();

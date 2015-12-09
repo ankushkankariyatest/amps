@@ -1,0 +1,72 @@
+﻿/***********************************
+Asset IT App,
+Version: 1.0,
+Description: Works for PGE-Asset IT Solutions: main/common section,
+Author: Wizni Developer
+***********************************/
+/*Login*/
+.assetIT-main-login_container{
+    margin-top:50px;
+}
+
+.assetIT-main-login_container > h1{
+    text-align:center;
+}
+.assetIT-main-login_container > form,
+.announcement-cont{ /*Announcement */
+    padding:30px;
+    background-color:#fff;
+    border:1px solid #ccc;
+    border-bottom:3px solid #0089c4;
+    margin-bottom:10px;
+}
+.announcement-cont{ 
+    border-bottom:1px solid #ccc;
+}
+.assetIT-main-login_container > form .form-control{
+    border-radius:0px;
+    font-size:inherit;
+}
+.assetIT-main-login_container > form button.btn{
+    border-radius:0px;
+    font-size:14px;
+}
+.assetIT-main-login_container > form p.agreement-msg{
+    font-size:12px;
+    padding-top:10px;
+}
+.assetIT-main-login_container > form p.reset-password-msg{
+    padding-bottom:10px;
+}
+.assetIT-main-login_container .form-group > div.chk-admin-privilege{
+    color:#666;
+    font-size:12px;
+    margin-top:5px;
+}
+.assetIT-main-login_container .form-group > div.chk-admin-privilege input[type="checkbox"]{
+    margin-top:2px;
+}
+.assetIT-main-login_container > form > section.success_message {
+    border: 1px solid #FFA100;
+}
+/*.assetIT-main-login_container > form > section.success_message > span{
+    color:#FFF; 
+    background: 
+    #FFA100; 
+    padding: 2px;
+}
+    */
+.assetIT-main-login_container > form > section.success_message  h5{
+    font-size:16px;
+    text-align: center;
+}
+.assetIT-main-login_container > form > section.success_message > div:first-child{
+    line-height:1.5em; 
+    margin :10px; 
+    font-size:13px;
+    text-align: justify;
+}
+.assetIT-main-login_container > form > section.success_message > div >p:first-child {
+    text-align: center;
+}
+

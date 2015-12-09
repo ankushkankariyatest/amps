@@ -1,0 +1,20 @@
+<div ng-show="isAddingFeedback" class="add-comment-textarea">
+    <div class="input-group col-xs-7">
+        <textarea class="form-control custom-control" rows="3" style="resize:none" max-text-count="250"  ng-trim="false"
+                  ng-model="feedbackTicketCommentCtrl.newFeedbackTicketComment"></textarea>
+        Remaining: {{ feedbackTicketCommentCtrl.newFeedbackTicketComment.length | remainingCount : 250 }}
+    </div>
+
+    <div ng-bind="feedbackTicketCommentCtrl.addFeedbackTicketCommentErrorMessage" class="add-feedback-error"></div>
+    <div class="feedback-btn-container">
+        <button ng-click="feedbackTicketCommentCtrl.post()"
+                ng-disabled="feedbackTicketCommentCtrl.isAddingNewFeedbackTicketComment" class="btn btn-primary">
+            Post
+        </button>
+        <button ng-click="feedbackTicketCommentCtrl.cancel()"
+                ng-disabled="feedbackTicketCommentCtrl.isAddingNewFeedbackTicketComment" class="btn btn-default">
+            Cancel
+        </button>
+    </div>
+
+</div>

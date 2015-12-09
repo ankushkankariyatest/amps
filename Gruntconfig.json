@@ -1,0 +1,25 @@
+{
+
+  "configVars": {
+    "app": "./",
+    "appjs": "app",
+    "assets": "assets",
+    "css": "assets/css",
+    "build": "build",
+    "dist": "dist"
+  },
+  "cssFiles": [
+    "bootstrap/dist/css/bootstrap.css"
+  ],
+  "cssFonts": [
+    "bootstrap/fonts/glyphicons-halflings-regular.*"
+  ],
+  "buildFiles": [
+    "assets/**", "app/**"
+  ],
+  "filePaths": [
+    "build/app/modules/**/**/*.js",
+    "build/app/base.js"
+  ]
+
+}

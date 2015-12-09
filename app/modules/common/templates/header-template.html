@@ -1,0 +1,51 @@
+<div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+            <li ng-repeat="menu in menuItems" class="{{menu.css}}" ng-class="{active:isActive(menu.base)}" ng-show="menu.displayToUi">
+                <a ng-if="false==menu.isDisabled && !menu.isExternal" ng-click="routeChange(menu)" href="#{{menu.base}}" target="{{menu.target}}">{{menu.text}}
+                      <!--<span ng-if="$last" class="beta-icon-white" title="Beta">Beta</span>-->
+                </a>
+                <a ng-if="true==menu.isDisabled && !menu.isExternal"><span class="pull-left">{{menu.text}}</span>
+                   <!-- <span ng-if="$last" class="beta-icon-white" title="Beta">Beta</span>-->
+                </a>
+                <a ng-if="true === menu.isExternal && 'GET' === menu.method" href="{{menu.routePath}}{{menu.routeParams}}" target="{{menu.target}}">{{menu.text}}</a>
+                <a ng-if="true === menu.isExternal && 'GET' !== menu.method" href="javascript:void(0);" ng-click="navigateWithPost(menu);">{{menu.text}}</a>
+            </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right assetIT-main-top-right" ng-if="true==loginActive">
+          <!--<li ng-if="isAlert" class="alert-message">
+              <a href="javascript:void(0)" class="glyphicon glyphicon-bell" style="color:orange" ng-click="showAlert = !showAlert"></a>
+              <ul class="alert-message-container" ng-show = "showAlert">
+                  <li>
+                      <p class="alertData.messageType" ng-bind-html="alertData.title"></p>
+                  </li>
+                  <li>
+                      <button class="btn btn-default marginT20" ng-click="hideAlert(); showAlert = false;">Close</button>
+                      <button class="btn btn-default marginT20" ng-click="showAlert = false;">Close</button>
+                  </li>
+              </ul>
+          </li>-->
+          <li class="dropdown">
+              <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#account-menu">
+                  <span class="assetIT-header-nav_welcome_txt">{{environments.activeEnvironment}} <span class="caret"></span> </span></a>
+              <ul id="environment" class="dropdown-menu" role="menu">
+                  <li ng-repeat="(k, v) in environments.info"><a href="{{v.href}}">{{ v.text }}</a></li>
+              </ul>
+          </li>
+            <li><a data-ng-click="openFeedback()" style="cursor:pointer">Feedback ?</a></li>
+            <li class="dropdown">
+                  <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#account-menu">
+                        <i class="glyphicon glyphicon-user"></i> <span class="assetIT-header-nav_welcome_txt" id="welcomeUser">{{fullName}} </span> <span class="caret"></span></a>
+                        <ul id="account-menu" class="dropdown-menu" role="menu">
+                              <li ng-if="isAdmin"><a ng-click="routeChange({routePath: 'users'})" href="javascript:void(0)" target="_self">Users</a></li>
+                              <li class="hidden-xs" ng-if="isAdmin"><a ng-click="routeChange({routePath: 'auditLogs'})" href="javascript:void(0)" target="_self">Admin Audit Log</a></li>
+                              <li ng-if="isAdmin"><a ng-click="routeChange({routePath: 'feedback'})" href="javascript:void(0)" target="_self">Feedback List</a></li>
+                              <li ng-if="isAdmin"><a ng-click="routeChange({routePath: 'certifications'})" href="javascript:void(0)" target="_self">Certification List</a></li>
+                              <li class="hidden-xs" ng-if="isNercCip"><a href="javascript:void(0)" ng-click="routeChange({routePath: 'siteExcelImport'})">Setup BCA Inventory Import</a></li>
+                              <li class="hidden-xs" ng-if="isNercCip"><a href="javascript:void(0)" ng-click="routeChange({routePath: 'VersionDiff'})">BCA Inventory Versions</a></li>
+                              <!--<li class="hidden-xs" ng-if="isAdmin"><a href="javascript:void(0)" ng-click="routeChange({routePath: 'splashConfiguration'})">Splash Configuration</a></li>-->
+                              <li><a href="http://help.am4it.com/amps" target="_blank">Help</a></li>
+                              <li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+                        </ul>
+            </li>
+      </ul>
+</div>

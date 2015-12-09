@@ -1,0 +1,46 @@
+<div ng-controller="mcpsController" ng-init="initializeController()" class="mcpfixes">
+    <div asset-it-filter-options filter-grid-record="filterGridRecord" search-text-data="searchTextData" filtered-state="filteredState" export-to="exportOption"></div>
+    <div class="clearfix"></div>
+    <div class="application-container mobile-fix mcp-description">
+        <div id="grid" class="app-table-bdr gridRequiredClass" kendo-plugin search-text-data="searchTextData" config="config" grid-options="config" filter-grid-fn="filterGrid" highlight-fn="highlight" show-popup="showPopup" custom-fn="customFn" export-to="exportOption"></div>
+    </div>
+    <script type="text/x-kendo-template" id="appTemplate">
+        <div class="visible-xs col-xs-12 visible-mobile">
+            <!--
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Description:</label></div>
+                <div class="col-xs-6"><label>#: DESCRIPTION #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Business Contact: </label></div>
+                <div class="col-xs-6"><label>#: BUSINESS_CONTACT #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Business Continuity: </label></div>
+                <div class="col-xs-6"><label>#: BUSINESS_CONTINUITY #</label></div>
+            </div>
+            -->
+            <div class="tabstrip">
+                <ul>
+                    <li class="k-state-active">General</li>
+                </ul>
+                <div class="mobile-subnav-tab appList"></div>
+            </div>
+        </div>
+        <div class="tabstrip">
+            <ul>
+                <li class="k-state-active">General</li>
+                <li class="feedbackTicket" attr-code="#: CODE #">Feedback <span class="#= COUNT ? '' : 'hide' #">(<span class="feedbackCount#: CODE #">#: COUNT #</span>)</span></li>
+            </ul>
+            <div class="appList"></div>
+            <div>
+                <feedback-ticket context="mcp" app-id="#: CODE #" update-feedback-count="updateFeedbackCount" no-work-order=false></feedback-ticket>
+            </div>
+        </div>
+    </script>
+</div>
+<script type="text/x-kendo-template" id="errormsg-template">
+    <span class="text-danger">#=message#</span>
+</script>

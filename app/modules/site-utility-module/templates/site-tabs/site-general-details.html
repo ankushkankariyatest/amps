@@ -1,0 +1,10 @@
+<div class="row generalTab">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" ng-repeat="key in siteGeneralDetailsCtrl.dataObject" style="margin-bottom: 5px;" ng-if="'parent' != key && '_$$hashKey'!=key && 'uid'!=key && typeof(key) != 'function' && key != 'uid' && key != '_events' && key != 'order' && key != 'notify'">
+        <div class="col-xs-6 comment-content-wrap">
+            <strong>{{cols[key] ? cols[key] : key}}</strong>
+        </div>
+        <div class="col-xs-6">
+            <span ng-if="siteGeneralDetailsCtrl.siteDetail[key]!=undefined">{{siteGeneralDetailsCtrl.siteDetail[key]}}</span>
+        </div>
+    </div>
+</div>

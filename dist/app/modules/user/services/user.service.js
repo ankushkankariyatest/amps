@@ -1,0 +1,1 @@
+!function(){"use strict";define(["assetIt","ajax-service"],function(t){t.register.factory("userService",["ajaxService",function(t){return{getUserList:function(e){var r={method:"GET",url:"users"};t.httpAuthGet(r).then(function(t){e(t.users)})},updateUserList:function(e,u){var r={method:"PUT",url:"users",data:e};t.httpAuthPut(r).then(function(t){})}}}])})}();

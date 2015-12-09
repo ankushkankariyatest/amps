@@ -1,0 +1,126 @@
+<div class="row">
+    <div class="col-xs-12 marginT20">
+        <div class="row" ng-cloak="">
+            <form name="myForm">
+                <div class="row-fluid version-compare">
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group">
+                            <label class="col-xs-12 control-label">Version From:</label>
+
+                            <div class="col-xs-12">
+                               <!-- <select class="form-control" ng-model="siteVersionComparorCtrl.comparerFromVersion"
+                                        required>
+                                    <option disabled="disabled" value="">Select Version</option>
+                                    <option ng-repeat="historyRecord in siteVersionComparorCtrl.siteDetail"
+                                            value="{{historyRecord.version}}">{{historyRecord.version}} -
+                                        {{historyRecord.createdAt | date:'MMM d yyyy h:mm a'}}
+                                    </option>
+                                </select>-->
+                                <div class="input-group">
+                                    <div class="form-control">
+                                        {{siteVersionComparorCtrl.comparerFromVersion}}
+                                        {{siteVersionComparorCtrl.comparerFromVersion ? '-' : 'Select Version'}}
+                                        {{siteVersionComparorCtrl.selectedComparerFromVersion | date:'MMM d yyyy h:mm a'}}
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-block dropdown-toggle" type="button"
+                                                data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul id="compareFrom" class="dropdown-menu">
+                                            <li ng-repeat="historyRecord in siteVersionComparorCtrl.siteDetail"
+                                                ng-click="siteVersionComparorCtrl.compareFromUpdated(historyRecord)">
+                                                {{historyRecord.version}} -
+                                                {{historyRecord.createdAt | date:'MMM d yyyy h:mm a'}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        <div class="form-group">
+                            <label class="col-xs-12 control-label">Version To:</label>
+
+                            <div class="col-xs-12">
+                                <!--<select class="form-control" ng-model="siteVersionComparorCtrl.comparerToVersion"
+                                        required>
+                                    <option disabled="disabled" value="">Select Version</option>
+                                    <option ng-repeat="historyRecord in siteVersionComparorCtrl.siteDetail"
+                                            value="{{historyRecord.version}}">{{historyRecord.version}} -
+                                        {{historyRecord.createdAt | date:'MMM d yyyy h:mm a'}}
+                                    </option>
+                                </select>-->
+
+                                <div class="input-group">
+                                    <div class="form-control">
+                                        {{siteVersionComparorCtrl.comparerToVersion}}
+                                        {{siteVersionComparorCtrl.comparerToVersion ? '-' : 'Select Version'}}
+                                        {{siteVersionComparorCtrl.selectedComparerToVersion | date:'MMM d yyyy h:mm a'}}
+                                    </div>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-block dropdown-toggle" type="button"
+                                                data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul id="compareTo" class="dropdown-menu">
+                                            <li ng-repeat="historyRecord in siteVersionComparorCtrl.siteDetail"
+                                                ng-click="siteVersionComparorCtrl.compareToUpdated(historyRecord)">
+                                                {{historyRecord.version}} -
+                                                {{historyRecord.createdAt | date:'MMM d yyyy h:mm a'}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        <label class="control-label">&nbsp;</label>
+
+                        <div class="col-xs-12 selectContainer">
+                            <button class="btn btn-primary pull-left" ng-disabled="myForm.$invalid || !siteVersionComparorCtrl.comparerFromVersion || !siteVersionComparorCtrl.comparerToVersion"
+                                    ng-click="siteVersionComparorCtrl.compareVersionsTab();">Go
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row" ng-if="!showDifference.value">
+            <p>&nbsp;</p>
+        </div>
+        <div class="col-xs-12 versionDiff" ng-if="siteVersionComparorCtrl.showDifference.value">
+            <div ng-if="!siteVersionComparorCtrl.comparorModel.isDiff">
+                <h4>Both the versions are same.</h4>
+            </div>
+            <div ng-if="siteVersionComparorCtrl.comparorModel.isDiff">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-sm-4"><h4>Attributes</h4></div>
+                        <div class="col-sm-4"><h4>Version {{siteVersionComparorCtrl.comparorModel.currentVersion}}
+                            ({{siteVersionComparorCtrl.comparorModel.currentVersionDate | date:'MMM d yyyy h:mm a'}})</h4></div>
+                        <div class="col-sm-4"><h4>Version {{siteVersionComparorCtrl.comparorModel.selectedVersion}}
+                            ({{siteVersionComparorCtrl.comparorModel.selectedVersionDate | date:'MMM d yyyy h:mm a'}})</h4></div>
+                    </div>
+
+                    <div class="row"
+                         ng-repeat="key in siteVersionComparorCtrl.comparorModel.compareKeysData track by $index"
+                         ng-if="siteVersionComparorCtrl.comparorModel.selectedVersionData[key] !== siteVersionComparorCtrl.comparorModel.currentRowVersionData[key]"
+                         ng-class="{diffRow: siteVersionComparorCtrl.comparorModel.selectedVersionData[key] !== siteVersionComparorCtrl.comparorModel.currentRowVersionData[key]}">
+                        <div class="col-sm-4"><b> {{cols[key] ? cols[key] : key}}</b></div>
+                        <div class="col-sm-4 diffCurrent">
+                            {{siteVersionComparorCtrl.comparorModel.currentRowVersionData.hasOwnProperty(key) ?
+                            siteVersionComparorCtrl.comparorModel.currentRowVersionData[key] : 'Not defined'}}
+                        </div>
+                        <div class="col-sm-4 diffSelected">
+                            {{siteVersionComparorCtrl.comparorModel.selectedVersionData.hasOwnProperty(key) ?
+                            siteVersionComparorCtrl.comparorModel.selectedVersionData[key] : 'Not defined'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

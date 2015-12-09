@@ -1,0 +1,19 @@
+@import url('kendo/kendo.common.min.css');
+@import url('kendo/kendo.bootstrap.min.css');
+@import url('bootstrap.min.css');
+@import url('pnotify/pnotify.custom.min.css');
+/*@import url('assetIT-main.css');*/
+
+@import url('assetIT-custom.css');
+@import url('structure/assetIT-layouts.css');
+@import url('structure/assetIT-navigation.css');
+@import url('structure/assetIT-popups.css');
+@import url('structure/assetIT-login.css');
+
+
+@import url('assetIT-header.css');
+@import url('structure/assetIT-responsive.css');
+@import url('assetIT-footer.css');
+@import url('error.css');
+@import url('autosuggestion.css');
+@import url('../libs/json-diff-patch/html.css');

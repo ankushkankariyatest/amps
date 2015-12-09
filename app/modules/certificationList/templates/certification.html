@@ -1,0 +1,7 @@
+<div ng-controller="certificationListController" ng-init="initializeController()" class="audit-log">
+    <div asset-it-filter-options filter-grid-record="filterGridRecord" search-text-data="searchTextData" filtered-state="filteredState" export-to="exportOption"></div>
+    <div class="clearfix"></div>
+    <div class="application-container mobile-fix">
+        <div id="grid" class="app-table-bdr gridRequiredClass certification-grid" kendo-plugin config="config" search-text-data="searchTextData" grid-options="config" filter-grid-fn="filterGrid" highlight-fn="highlight" show-popup="showPopup" custom-fn="customFn" export-to="exportOption"></div>
+    </div>
+</div>

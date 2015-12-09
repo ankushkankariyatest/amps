@@ -1,0 +1,406 @@
+<div><div infra-grid tabname=server class=app-table-bdr></div></div><script type=text/x-kendo-template id=serverTemplate><div class="visible-xs col-xs-12">
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Manufacturer: </label></div>
+            <div class="col-xs-6"><label>#: ManufacturerName #</label></div>
+        </div>
+
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Model: </label></div>
+            <div class="col-xs-6"><label>#: Model #</label></div>
+        </div>
+
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Version: </label></div>
+            <div class="col-xs-6"><label>#: firmware_version #</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Asset Name: </label></div>
+            <div class="col-xs-6"><label>#: Name #</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label> Asset Description: </label></div>
+            <div class="col-xs-6"><label>#: ShortDescription #</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Status: </label></div>
+            <div class="col-xs-6"><label>#: AssetLifecycleStatus #</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Category: </label></div>
+            <div class="col-xs-6"><label>#: Category #</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Type: </label></div>
+            <div class="col-xs-6"><label>#: Type #</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Item: </label></div>
+            <div class="col-xs-6"><label>#: Item #</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Product Name: </label></div>
+            <div class="col-xs-6"><label> </label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Model/Version: </label></div>
+            <div class="col-xs-6"><label>#: Model #</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Part Number: </label></div>
+            <div class="col-xs-6"><label> #: PartNumber #-</label></div>
+        </div>
+        <div class="row assetIT-main-app_details_block">
+            <div class="col-xs-6"><label>Serial:</label></div>
+            <div class="col-xs-6"><label>#: SerialNumber #</label></div>
+        </div>
+    </div>
+    <div class="tabstrip hidden-xs">
+        <ul>
+            <li class="k-state-active">Overview</li>
+            <li>Asset Data</li>
+            <li>Aquire Info</li>
+            <li>System Info</li>
+            <li>Network Info</li>
+            <li>Compliance</li>
+            <li>Work Tickets</li>
+            <li>Application</li>
+            <li>Other</li>
+            <li>Feedback</li>
+        </ul>
+        <div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Asset Name: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Name #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label> Asset Description: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ShortDescription #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Status: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: AssetLifecycleStatus #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Category: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Category #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Type: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Type #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Item: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Item #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Product Name: </label></div>
+                <div class="col-md-3 col-sm-4"><label> </label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Model/Version: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Model #</label></div>
+            </div>
+            <!--<div class="row assetIT-main-app_details_block">-->
+            <!--<div class="col-md-3 col-sm-4"><label>Manufacture: </label></div>-->
+            <!--<div class="col-md-3 col-sm-4"><label> - Check -</label></div>-->
+            <!--</div>-->
+            <!--<div class="row assetIT-main-app_details_block">-->
+            <!--<div class="col-md-3 col-sm-4"><label>OS version: </label></div>-->
+            <!--<div class="col-md-3 col-sm-4"><label> - Check -</label></div>-->
+            <!--</div>-->
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Part Number: </label></div>
+                <div class="col-md-3 col-sm-4"><label> #: PartNumber #-</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Serial:</label></div>
+                <div class="col-md-3 col-sm-4"><label>#: SerialNumber #</label></div>
+            </div>
+            <!--<div class="row assetIT-main-app_details_block">-->
+            <!--<div class="col-md-3 col-sm-4"><label>Environment Specifications: </label></div>-->
+            <!--<div class="col-md-3 col-sm-4"><label> - Check -</label></div>-->
+            <!--</div>-->
+        </div>
+
+        <div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Asset ID: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: AssetID #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Asset Class: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: AssetClass #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Location: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: LocationCompany #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Site: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Site #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Site Group: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: SiteGroup #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Region: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Region #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Status: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: AssetLifecycleStatus #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label> Virtual Indicator: </label></div>
+                <div class="col-md-3 col-sm-4"><label> </label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label> Virtual System Type: </label></div>
+                <div class="col-md-3 col-sm-4"><label> </label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Number of CPU(s): </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: NumOfCPU #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label> PG&E Organization: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: PGEOrganization #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label> SCADA System Name: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: SCADASystemName #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label> NAS CIFS/NFS: </label></div>
+                <div class="col-md-3 col-sm-4"><label> </label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>SAP Asset ID: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: SAPAssetID #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>SAP County No: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: SAPCountyNo #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Normalization Status: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: NormalizationStatus #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Part Number: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: PartNumber #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Supported: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Supported #</label></div>
+            </div>
+        </div>
+        <div>
+            <!--<div class="row assetIT-main-app_details_block">-->
+            <!--<div class="col-md-3 col-sm-4"><label>Purchase Date: </label></div>-->
+            <!--<div class="col-md-3 col-sm-4"><label>  - check - </label></div>-->
+            <!--</div>-->
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Installation Date: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: InstallationDate #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Create Date: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: String(CreateDate).split('T')[0] #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Modified Date: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: String(ModifiedDate) #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Received Date: </label></div>
+                <div class="col-md-3 col-sm-4"><label> </label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>End of Life: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: AssetLifecycleStatus #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Fixed Asset: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: FixedAsset #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Schedule Type: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ScheduleType #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Depreciated: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Depreciated #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Cost Center: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: CostCenter #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Inventory: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Inventory #</label></div>
+            </div>
+            <!--<div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Acquired Method: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: AcquiredMethod #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Fixed Asset: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: FixedAsset #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Schedule Type: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ScheduleType #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Depreciated: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Depreciated #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Inventory: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Inventory #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Cost Center: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: CostCenter #</label></div>
+            </div>-->
+        </div>
+        <div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Impact Computation Model: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ImpactComputationModel #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Primary Capability: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: PrimaryCapability #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>System Type: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: SystemType #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Admin Password Status: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: AdminPasswordStatus #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Boot ROM Supported: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: BootROMSupported #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Chassis Bootup State: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ChassisBootupState #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Reset Capability: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ResetCapability #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Thermal State: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ThermalState #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Failed Automatic Identification: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: FailedAutomaticIdentification #</label></div>
+            </div>
+        </div>
+        <div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>IP Address: </label></div>
+                <div class="col-md-3 col-sm-4"><label></label></div>
+            </div>
+            <!--<div class="row assetIT-main-app_details_block">-->
+            <!--<div class="col-md-3 col-sm-4"><label>Infrastructure Management System: </label></div>-->
+            <!--<div class="col-md-3 col-sm-4"><label> - Check -</label></div>-->
+            <!--</div>-->
+            <!-- <div class="row assetIT-main-app_details_block">
+                 <div class="col-md-3 col-sm-4"><label>Domain: </label></div>
+                 <div class="col-md-3 col-sm-4"><label> hecomain </label></div>
+             </div>-->
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>MAC Address: </label></div>
+                <div class="col-md-3 col-sm-4"><label></label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Subnet Mask: </label></div>
+                <div class="col-md-3 col-sm-4"><label></label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Router: </label></div>
+                <div class="col-md-3 col-sm-4"><label></label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>DNS Server: </label></div>
+                <div class="col-md-3 col-sm-4"><label></label></div>
+            </div>
+            <!--<div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>DHCP Use: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: DHCPUse #</label></div>
+            </div>-->
+            <!--<div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Class ID: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ClassId #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Dataset ID : </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: DatasetId #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Reconciliation ID: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: ReconciliationIdentity #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>User Display Object Name: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: UserDisplayObjectName #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Deleted: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: deleted #</label></div>
+            </div>-->
+        </div>
+        <div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Compliance Requirement: </label></div>
+                <div class="col-md-3 col-sm-4"><label></label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>NERC CIP Type: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: NERCType #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Baseline Config: </label></div>
+                <div class="col-md-3 col-sm-4"><label> </label></div>
+            </div>
+        </div>
+        <div>
+            <div class="no-data-available">
+                Work Tickets data will be added in future Releases.
+            </div>
+        </div>
+        <div>
+            <div app-details-wrapper instance-id="#: InstanceId #"></div>
+        </div>
+        <div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Submitter: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: Submitter #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Create Date: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: String(CreateDate).split('T')[0] #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Modified Date: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: String(ModifiedDate).split('T')[0] #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Last Modified By: </label></div>
+                <div class="col-md-3 col-sm-4"><label>#: LastModifiedBy #</label></div>
+            </div>
+        </div>
+        <div>
+             <div class="bca-feedback-con">
+                 <feedback-ticket context="server" app-id="#: Name #" update-feedback-count="updateFeedbackCount" no-work-order=false></feedback-ticket>
+             </div>
+        </div>
+    </div></script>

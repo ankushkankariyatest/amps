@@ -1,0 +1,51 @@
+<!--Registration start-->
+<div ng-controller="registerController" ng-init="initializeController()" ng-cloak>
+    <div class="row assetIT-main-register_container">
+
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 assetIT-main-login_container">
+            <h1>Register for New Account</h1>
+            <form name="registerForm" novalidate="novalidate">
+                <p class="text-center" ng-class="{'bg-danger': request.isSuccess==false}" ng-show="request.isSuccess==false">
+                    {{ request.message }}
+                </p>
+                <div class="form-group" ng-class="{'has-error': error.username.isValid==false}">
+                    <input type="text" class="form-control" placeholder="Enter LAN ID" ng-model="userInfo.username" autocapitalize="off" autocorrect="off">
+                    <div class="text-danger" ng-show="!error.username.isValid"> {{ error.username.message }}</div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': error.password.isValid==false}">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="userInfo.password">
+                    <div class="text-danger" ng-show="!error.password.isValid"> {{ error.password.message }}</div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': error.supervisorLanId.isValid==false}">
+                    <input type="text" class="form-control" placeholder="Enter Supervisor LAN ID (for tracking purposes)" ng-model="userInfo.supervisorLanId" autocapitalize="off" autocorrect="off">
+                    <div class="text-danger" ng-show="!error.supervisorLanId.isValid"> {{ error.supervisorLanId.message }}</div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': error.businessJustification.isValid==false}">
+                    <textarea class="form-control" ng-model="userInfo.businessJustification" placeholder="Describe your need for access to AMPS" style="height: 120px;"></textarea>
+                    <div class="text-danger" ng-show="!error.businessJustification.isValid"> {{ error.businessJustification.message }}</div>
+                </div>
+                <!--<div class="checkbox chk-admin-privilege">
+                    <label>
+                        <input type="checkbox" ng-model="userInfo.requestAdmin"> Request Admin Access
+                    </label>
+                </div>-->
+                <div class="checkbox chk-admin-privilege">
+                    <label>
+                        <input type="checkbox" ng-model="userInfo.requestEnterprise" > Infrastructure Access (Server, Database, Network, ACE, etc.). An email approval from your Supervisor is required.
+                    </label>
+                </div>
+                 <p class="agreement-msg">
+                     By Registering you will be provisioned for AMPS limited access immediately and advanced features based on approvals. Contact <a href="mailto:ITAssetManagementTeam@pge.com">ITAssetManagementTeam@pge.com</a> in case of any questions.
+                </p>
+                <button class="btn btn-block btn-lg btn-primary" ng-click="registerUser()">Register</button>
+                <span id="unAuth" class="help-block"></span>
+            </form>
+            <div>
+                <p class="text-center">
+                    Already Registered with AMPS? <a href="#login">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Registration ends-->

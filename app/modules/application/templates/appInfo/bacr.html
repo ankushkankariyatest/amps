@@ -1,0 +1,201 @@
+<button type="button" class="close" aria-label="Close" data-ng-click="modalOptions.close()"><span>×</span></button>
+<div id="bacrView" class="form-group" ng-controller="bacrController" ng-init="initController()">
+    <h1 class="model-heading">Certify &nbsp; {{appData.DISPLAY_NAME}}  <a class="notForPdf pull-right icon-pdf-export" data-ng-click="exportPageToPDf()"></a></h1>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="application-btn btn-navigator">
+                <h4 class="ng-binding">General</h4>
+                <div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>App ID: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.APP_ID }}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Status: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.STATUS }}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Asset Type: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.ASSET_TYPE }}</label></div>
+                    </div>
+
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Information classification: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.INFORMATION_CLASSIFICATION }}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Display Name: </label></div>
+                        <div class="col-md-8 col-sm-8 pdright-30"><label>{{appData.DISPLAY_NAME}}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Service or Application Acronym: </label></div>
+                        <div class="col-md-8 col-sm-8 pdright-30"><label>{{appData.SERVICE_OR_APPLICATION_ACRONYM}}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Service or Application Name: </label></div>
+                        <div class="col-md-8 col-sm-8 pdright-30"><label>{{appData.SERVICE_OR_APPLICATION_NAME}}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>IT Core Service: </label></div>
+                        <div class="col-md-8 col-sm-8 pdright-30"><label>{{appData.IT_CORE_SERVICE}}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Compliance Requirement: </label></div>
+                        <div class="col-md-8 col-sm-8 pdright-30"><label>{{appData.COMPLIANCE_REQUIREMENTS}}</label></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="application-btn btn-navigator">
+                <h4 class="ng-binding">Ownership Information</h4>
+                <div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>IT Group: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.IT_GROUP }} </label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Managed By: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.MANAGED_BY}} </label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Client Owner: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.CLIENT_OWNER }}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>IT SME: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.IT_SME}} </label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>IT SME BU: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.IT_SME_BU}} </label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>IT Director: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.IT_DIRECTOR}} </label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>IT Lead: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.IT_LEAD}}  </label></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="application-btn btn-navigator">
+                <h4 class="ng-binding">Description</h4>
+                <div class="pdright-30">
+                    {{appData.ASSET_DESCRIPTION}}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="application-btn btn-navigator">
+                <h4 class="ng-binding">BIA Information</h4>
+                <div>
+                    <!--<div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Business Criticality: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.BUSINESS_CRITICALITY}}</label></div>
+                    </div>-->
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>BIA Tier: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.BIA_TIER }} </label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Design Tier: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.DESIGN_TIER }}</label></div>
+                    </div>
+                    <!--<div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>BIA Number: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.PGE_BIA_NUM }} </label></div>
+                    </div>
+                    &lt;!&ndash;<div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Client RPO: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.CLIENT_RPO }}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Client RTO: </label></div>
+                        <div class="col-md-8 col-sm-8"><label>{{appData.CLIENT_RTO }}</label></div>
+                    </div>&ndash;&gt;-->
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="application-btn btn-navigator">
+            <h4 class="ng-binding">MCPS</h4>
+            <div>
+                <div class="row assetIT-main-app_details_block" ng-repeat="mcp in appData.processInfo">
+                    <div class="col-md-4 col-sm-4"><label> {{mcp.CODE}}</label></div>
+                    <div class="col-md-8 col-sm-8"><label> {{mcp.DESCRIPTION}}  </label></div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <!--<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="application-btn btn-navigator">
+            <h4 class="ng-binding">LOB</h4>
+            <div>
+                <div class="row assetIT-main-app_details_block" ng-if="appData.lobInfo.length==0"><div class="col-xs-12">No information available</div></div>
+                <div class="row assetIT-main-app_details_block" ng-repeat="lob in appData.lobInfo" ng-if="appData.lobInfo.length>0">
+                    <div class="col-md-12 col-sm-4"><label> {{lob}}</label></div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    </div>
+    <!--
+    <div class="row" ng-if="showInfrastructure">
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="application-btn btn-navigator">
+                <h4 class="ng-binding">Infrastructure</h4>
+                <div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Network: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.NETWORK}}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Primary DC: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.PRIMARY_DC}}</label></div>
+                    </div>
+                    <div class="row assetIT-main-app_details_block">
+                        <div class="col-md-4 col-sm-4"><label>Secondary DC: </label></div>
+                        <div class="col-md-8 col-sm-8"><label> {{appData.SECONDARY_DC}}</label></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div style="clear:both;" ></div>
+
+    <div ng-if="showInfrastructure">
+        <div class="assetIT-main-app_details_block marginT20 infrastructure-btn">
+            <div app-infra-grids-wrapper key="{{appData.APP_ID}}"></div>
+        </div>
+    </div>-->
+    <div class="notForPdf form-group marginT20" ng-if="!appData.oldData">
+        <label>
+            <input type="checkbox" ng-model="obj.certify" ng-value="true">
+            Request updates?
+        </label>
+        <!--<label class="radio-inline">
+            <input type="radio" ng-model="obj.certify" ng-value="true">
+            I certify with updates
+        </label>-->
+    </div>
+     <div class="notForPdf form-group marginT20" ng-if="obj.certify || (appData.oldData && !appData.status)">
+            <h1>Comment:</h1>
+            <textarea class="form-control" rows="5" id="comment" ng-model="obj.comment" ng-if="!appData.oldData" ng-change="updateCount()"></textarea>
+            <span ng-if="!appData.oldData">Remaining: {{ remainingCount }} Characters</span>
+            <div class="breakWord" ng-if="appData.oldData ">{{comment}}</div>
+     </div>
+    <div class="notForPdf">
+        <button class="btn btn-primary" data-ng-click="certify('1')" ng-if="!appData.oldData" ng-disabled = "obj.certify && !obj.comment">
+            {{!obj.certify ? "I Certify" : "I Certify With Updates"}}
+        </button> <span ng-if="!appData.oldData">&nbsp;</span>
+            <!--<button class="btn btn-danger" data-ng-click="certify('0')" ng-if="!appData.oldData">I Reject</button> &nbsp;-->
+        <button class="btn btn-default" data-ng-click="modalOptions.close()">Close</button>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div ng-controller=userController ng-init=initializeController() ng-cloak><div class=content><div class=assetIT-page-heading><h1>Users</h1></div><div class="col-md-12 marginT10"><div class="input-group assetIT-main-search_control"><input class="form-control search_bg" id=txtSearchString placeholder="Search For Users" aria-describedby="search field"></div></div></div><div class="pull-right grid-top-btn" ng-show=!isSafari><a class="btn-excel hidden-xs" ng-click=exportToExcel() title="Export to Excel"><i class=icon-excel></i></a> <a class="btn-CSV hidden-xs" ng-click=exportToCsv() title="Export to CSV">CSV</a></div><div class=clearfix></div><div class="application-container mobile-fix users-tbl"><div id=kendo-users class=user-table-bdr></div></div><script type=text/x-kendo-template id=errormsg-template><span class="text-danger">#=message#</span></script><script type=text/x-kendo-template id=appTemplate><div class="visible-xs col-xs-12 visible-mobile">
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Name:</label></div>
+                <div class="col-xs-6"><label>#: fullName #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Admin: </label></div>
+                <div class="col-xs-6"><label>
+                #if(role == true) {#
+                    Yes
+                #} else {#
+                    No
+                #}#
+                </label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>SharePoint List: </label></div>
+                <div class="col-xs-6"><label>
+                #if(isNERC_CIP == true) {#
+                    Yes
+                #} else {#
+                    No
+                #}#
+                </label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Status: </label></div>
+                <div class="col-xs-6"><label>
+                #if(status == true) {#
+                    Active
+                #} else {#
+                    Inactive
+                #}#
+                </label></div>
+            </div>
+        </div></script></div>

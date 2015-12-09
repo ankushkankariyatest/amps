@@ -1,0 +1,30 @@
+<div class="content">
+    <div class="col-xs-12 marginT20 marginB20">
+        <!--<div id="historyGrid" class="app-table-bdr gridRequiredClass certification-grid compareHistory-grid" kendo-plugin config="cipHistoryConfig" show-popup="showPopup"></div>-->
+        <div class="added-feedback">
+            <ul>
+                <li ng-repeat="historyRecord in siteHistoryCtrl.siteDetail | orderBy: '-createdAt'">
+                    <p class="comment-content-wrap">
+                        <span class="feedback-time-duration"><a href="javascript:void(0);" ng-click="siteHistoryCtrl.showVersionDetail(historyRecord.version);">Version {{historyRecord.version}}</a> &nbsp; </span>
+
+                        <span class="feedback-user-name">{{historyRecord.createdBy}}</span>
+                        <span class="added-content" ng-if="$last"> added <strong>{{siteHistoryCtrl.title}}</strong></span>
+                        <span class="added-content" ng-if="!$last"><span ng-if="historyRecord.isRemoved" class="alert-danger">Removed</span><span ng-if="!historyRecord.isRemoved">{{historyRecord.comment}}</span> <strong> {{siteHistoryCtrl.title}}</strong></span>
+                        <span class="pull-right" >{{historyRecord.createdAt | timeago}}</span>
+                        <span class="pull-right" style="margin-right:10px;" ng-if="$first"><strong>Current Approved Version</strong></span>
+
+                    </p>
+                    <div ng-if="!$last">
+                        <div class="row" ng-repeat="key in historyRecord.compareKeysData" ng-if="siteHistoryCtrl.siteDetail[$parent.$index+1].recordData[key] !== siteHistoryCtrl.siteDetail[$parent.$index].recordData[key]"
+                             ng-class="{diffRow: siteHistoryCtrl.siteDetail[$parent.$index].recordData[key] !== siteHistoryCtrl.siteDetail[$parent.$index+1].recordData[key]}">
+                            <div class="col-sm-2"> <b> {{cols[key] ? cols[key] : key}}</b></div>
+                            <div class="col-sm-3 diffSelected">{{siteHistoryCtrl.siteDetail[$parent.$parent.$index + 1].recordData.hasOwnProperty(key) ? siteHistoryCtrl.siteDetail[$parent.$parent.$index + 1].recordData[key] : 'Not defined'}}</div>
+                            <div class="col-sm-3 diffCurrent">{{siteHistoryCtrl.siteDetail[$parent.$parent.$index].recordData.hasOwnProperty(key) ? siteHistoryCtrl.siteDetail[$parent.$parent.$index].recordData[key] : 'Not defined'}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

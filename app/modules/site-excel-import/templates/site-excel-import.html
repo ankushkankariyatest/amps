@@ -1,0 +1,166 @@
+<div class="infrastructure-tab application-wrapper" ng-controller="siteExcelImportController"
+     ng-class="{'k-non-admin-excel-report': !(isAdmin && isNercCip)}" ng-init="initializeController()" ng-cloak>
+    <div kendo-tab-strip k-content-urls="[ null, null]" class="noborder">
+        <!-- tab list -->
+        <ul>
+            <li ng-click="refreshPrimaryTab();" class="k-state-active" ng-if="isAdmin && isNercCip">Configure Data
+                Display
+            </li>
+            <li ng-click="refreshGrid();" ng-class="{'k-state-active':!(isAdmin && isNercCip)}">Audit Logs</li>
+        </ul>
+        <div class="configure-wrapper" ng-if="isAdmin && isNercCip">
+            <h2> Configure Data Display</h2>
+
+            <div class="row">
+                <div class="col-xs-4">
+                    <select class="form-control" name="sheet" ng-model="sheetGroups.selectedSheet"
+                            ng-change='getSheetGroupData()'
+                            ng-options="data.displayName for data in sheetData | orderBy:'+order'" required>
+                        <option value="" disabled="disabled">Choose Entity</option>
+                    </select>
+                </div>
+            </div>
+            <div ng-show="sheetGroups.showGroup">
+                <div class="clearfix"></div>
+                <div class='contentWrapper ng-cloak'>
+                    <div class='content'>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="marginT30">Attributes</h4>
+
+                                <div class="assetIT-main-nerc_attr_container">
+                                    <div class="btn-droppable" ng-repeat="item in masterColList" data-drop="true"
+                                         ng-model='masterColList'
+                                         data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=masterColList])'}"
+                                         jqyoui-droppable="{index: {{$index}}}">
+                                        <div class="btn btn-draggable" data-drag="{{item.drag}}"
+                                             data-jqyoui-options="{revert: 'invalid'}" ng-model="masterColList"
+                                             jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}"
+                                             ng-hide="!item.title" title="{{item.title}}">{{item.title |
+                                            limitTo:30}}{{item.title.length > 30? '...':''}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="col-md-12">
+                                <h4>Primary Attribute</h4>
+                                <!--<ul class="thumbnails" style="padding-left:0px;">-->
+                                <ul class="list-unstyled assetIT-main-nerc_gp_attr_list">
+                                    <li class="span3"
+                                        ng-repeat="group in sheetGroups.groupData | filter: {groupName: 'Primary'}">
+                                        <div class="row" ng-hide="true">
+                                            <input type="text" class="form-control" name="groupName"
+                                                   ng-model="group.groupName" maxlength="20" placeholder="Group Name"
+                                                   ng-disabled="group.groupName === 'Primary'"
+                                                   value="{{group.groupName}}"/>
+                                        </div>
+                                        <div class="row">
+                                            <div class="thumbnail assetIT-main-nerc_multi_option  gp-option"
+                                                 data-drop="true" ng-model='group.dataObject2'
+                                                 jqyoui-droppable="{multiple:true}">
+                                                <div class="caption" placeholder="Drag elements here">
+                                                    <div class="btn btn-info btn-draggable"
+                                                         ng-repeat="item in group.dataObject2" ng-show="item.title"
+                                                         ng-model="group.dataObject2">{{item.title}} &nbsp;
+                                                        <button type="button" class="close" aria-label="Close"
+                                                                data-ng-click="removeAttribute(item, group);">
+                                                            <span>×</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <hr class="assetIT-cerp-content_partition"/>
+                            </div>
+                            <div class="col-md-12">
+                                <div>
+                                    <h4 class="pull-left marginT0">Groups</h4>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <br>
+                                <ul class="list-unstyled assetIT-main-nerc_gp_attr_list">
+                                    <li class="span3" ng-repeat="group in sheetGroups.groupData">
+                                        <div class="row" ng-if="group.groupName !== 'Primary'">
+                                            <input type="text" class="form-control pull-left" name="groupName"
+                                                   ng-class="{ 'text-error': group.isError}" ng-model="group.groupName"
+                                                   maxlength="20" placeholder="Group Name"
+                                                   ng-disabled="group.groupName === 'Primary'"
+                                                   value="{{group.groupName}}" ng-blur="dataChanged(group)"/>
+                                            <a class="btn btn-link pull-left" href="javascript:void(0);"
+                                               ng-if="group.groupName !== 'Primary'" ng-click="removeGroup(group)">Remove</a>
+                                            <br><br>
+                                        </div>
+                                        <div class="row" ng-if="group.groupName !== 'Primary'">
+                                            <div class="thumbnail assetIT-main-nerc_multi_option gp-option"
+                                                 data-drop="true" ng-model='group.dataObject2'
+                                                 data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=group.dataObject2])'}"
+                                                 jqyoui-droppable="{multiple:true}">
+                                                <div class="caption" placeholder="Drag elements here">
+                                                    <div class="btn btn-info btn-draggable"
+                                                         ng-repeat="item in group.dataObject2" ng-show="item.title"
+                                                         ng-model="group.dataObject2" title="{{item.title}}">
+                                                        {{item.title | limitTo:30}}{{item.title.length > 30? '...':''}}
+                                                        &nbsp;
+                                                        <button type="button" class="close" aria-label="Close"
+                                                                data-ng-click="removeAttribute(item, group);">
+                                                            <span>×</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                                <div>
+                                    <!--<a class="pull-left btn btn-primary assetIT-nerc-add_new_gp"
+                                       href="javascript:void(0);" ng-disabled="validForm()" ng-click="addGroup()"><span
+                                        class="glyphicon glyphicon-plus"></span> Add new group</a>-->
+
+                                    <button type="button" class="btn btn-primary" ng-disabled="validForm()"
+                                            ng-click="addGroup()"><span
+                                        class="glyphicon glyphicon-plus"></span> Add new group
+                                    </button>
+                                    <button type="button" class="btn btn-primary" ng-disabled="validForm()"
+                                            ng-click="saveGroups()">Save Group Definition
+                                    </button>
+                                    &nbsp;&nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="configure-wrapper">
+            <div class="assetIT-main-nerc_import_data_container">
+                <div>
+                    <button class="btn btn-primary" ng-if="isAdmin && isNercCip" ng-click="manualImport();">Import
+                        Data
+                    </button>
+                    <button class="btn btn-primary" ng-if="isAdmin && isNercCip" ng-click="manualImportUsers();">Import
+                        Users
+                    </button>
+                    <button class="btn btn-primary" ng-if="isAdmin && isNercCip" ng-click="exceptionReportEmail();">Send Exception Emails
+                    </button>
+                    <a class="pull-right refresh-btn" style="text-decoration: none" href="javascript:void(0);"
+                       ng-click="refreshGrid();">Refresh Logs</a>
+                </div>
+                <div class="clear"></div>
+                <div id="importExelGrid"
+                     class="app-table-bdr gridRequiredClass group-footer-bg importExel-grid marginT10" kendo-plugin
+                     config="importExelConfig" show-popup="showPopup"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+</div>
+<div class="addGrouphtml">
+
+</div>
+<script type="text/x-kendo-template" id="importTemplate">
+    <div class="tabstrip"></div>
+</script>
+</div>

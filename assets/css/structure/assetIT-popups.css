@@ -1,0 +1,420 @@
+/*
+    BASE > Base rules for popups ONLY
+
+    ---------------------------------------
+    TOC : Popups include:
+    ---------------------------------------
+
+     - dialogs
+	    - (.popup-foo overrides, e.g. top, bottom, etc)
+	    - specific dialogs
+	    - iFrames in dialogs
+		- headers and text
+
+	 - loading (MOVE TO FORMS?)
+
+*/
+/******************************************************************************************************************/
+/*                G E N E R I C     P O P U P     E L E M E N T S    -    . p o p u p - f o o                    */
+/*****************************************************************************************************************/
+/*
+    NOTES  on .popup-foo :
+ 	---------------------------
+	 - structure of .dialog type of popups can be found in dialogFrame.js
+	 - complex structure can support transparent shadow bg border images for style OR a simplier css3 style for supported browsers
+	 - generic popup elements are base structures for the subclasses: flyouts, dialogs, and map popup menus
+	    - need to double-check mapContextMenus : not all use structure from dialogFrame.js
+        - not all structures/styles are used for each subclass
+     - heights and widths currently set for modal dialogs using bg images for style
+*/
+
+
+/*
+   ------------------------
+        POPUP : top
+   ------------------------
+*/
+.modal-dialog {
+  width: 450px;
+  padding: 7px;
+  background: #fff;
+  margin-top: 5%;
+}
+.default-popup .modal-dialog{
+    width: 600px;
+}
+
+.bacr-popup .modal-dialog{
+    width: 65%;
+}
+.bacr-popup .modal-dialog h4 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+
+}
+
+.modal-content, .infrastructure-tab-container {
+  border-radius: 0;
+  box-shadow: none;
+  padding: 15px;
+  border: 1px solid #e1e1e1;
+  background: #f7f7f7;
+  font-size: 13px;
+}
+.model-heading {
+  border-bottom: 1px solid #0089c4;
+  padding-bottom: 10px;
+  margin: 0 0 15px 0;
+}
+.model-heading > i{
+    font-size: 18px;
+    font-weight: 600;
+    color: #0089c4;
+}
+/*
+   ----------------------------
+        POPUP : closeLink
+   ----------------------------
+*/
+.modal-content .close {
+    font-size: 16px;
+   position: absolute;
+   cursor: pointer;
+   opacity: .5;
+   right: 5px;
+   top: 0;
+ }
+
+.configure-group .modal-header { padding: 0 0 10px; }
+.configure-group .modal-title { padding: 0; margin: 0; }
+.configure-group .modal-body { padding-left: 0;}
+.configure-group .modal-footer { padding: 5px;}
+
+/***************************************************************************/
+/*                K E N D O    P O P U P    O V E R R I D E S              */
+/***************************************************************************/
+
+.k-window-custom{
+    width: 600px;
+    left: 50% !important;
+    top: 120px !important;
+    margin-left: -300px;
+    background-color: #f7f7f7;
+    border: 7px solid #fff !important;
+    border-radius: 0;
+    padding: 0 !important;
+
+}
+.k-window-custom .k-window-titlebar {
+    margin-top: 1px !important;
+    border-bottom: 1px solid #0089c4;
+    border-radius: 0;
+    width: auto;
+    left: 15px;
+    right: 15px;
+    z-index: 1;
+}
+.k-window-custom .k-window-title{
+    color: #0089c4;
+    font-size: 24px;
+    margin: 0;
+    position: relative;
+    left: 0;
+}
+.k-window-custom .k-header{
+    height: auto;
+}
+.k-window-custom .k-edit-form-container{
+    width: auto;
+}
+.k-window-custom .k-window-content{
+    margin-top: 0;
+    overflow: hidden;
+    background: transparent;
+    border: 1px solid #e1e1e1;
+    border-radius: 0;
+    padding-top: 60px !important;
+}
+.k-window-custom .k-edit-label{
+    width: 25%;
+}
+.k-window-custom .k-edit-field{
+    float: left;
+    width: 67%;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+.k-window-custom .k-edit-field textarea {
+    width: 395px;
+    resize: none;
+}
+.k-window-custom .k-edit-field input[type='text']{
+    width: 100%;
+}
+.k-window-custom .k-button .k-icon{
+    display: none;
+}
+.k-window-custom .k-button{
+    border-radius: 0px;
+}
+.k-window-custom .k-window-titlebar .k-window-actions{
+    margin-top: 6px;
+}
+.k-window-custom .k-edit-buttons{
+    width: auto;
+    border: none;
+}
+.k-primary {
+    color: #fff;
+background-color: #428bca;
+border-color: #357ebd;
+}
+.k-primary:hover {
+background-color: #3071a9;
+color: #fff;
+}
+
+/*infrastructure popup */
+
+.infrastructure-detail>tr>td {
+    margin: 5px 0;
+}
+.infrastructure-detail>tbody>tr>td:first-child {
+    font-weight: 600;
+width: 200px;
+padding: 3px 0;
+}
+/*******************************END KENDO POPUP OVERRIDES *********************************/
+.k-filter-menu .k-dropdown-wrap  {
+    margin: 10px 0;
+}
+.k-filter-menu .k-dropdown {
+    width: 100%;
+}
+.k-grid-filter.k-state-active,
+.k-grid-filter.k-state-border-down {
+    border: none;
+    box-shadow: none;
+    background-color: #fff;
+    outline: none;
+}
+.k-header > .k-grid-filter, .k-header > .k-header-column-menu {
+   margin: -0.9em -0.4em -.9em;
+  padding: .9em .17em .9em;
+
+}
+
+.k-filter-menu input[type=radio], .k-filter-menu input[type=checkbox]{
+    margin-right: 5px;
+}
+.k-filter-menu label{
+    margin-right: 15px;
+}
+/********************************************
+                 FEEDBACK
+********************************************/
+
+.feedbackThankyouModal .modal-content,
+.feedbackErrorModal .modal-content{
+    border-radius: 0;
+    border: 1px solid #ccc;
+}
+.feedbackThankyouModal .modal-header,
+.feedbackErrorModal .modal-header{
+    background-color: #eeeeee;
+    padding: 5px 15px;
+}
+.feedbackThankyouModal .modal-header h3,
+.feedbackErrorModal .modal-header h3{
+    color: #666;
+    font-size: 18px;
+}
+.feedbackThankyouModal .modal-body,
+.feedbackErrorModal .modal-body{
+    text-align: center;
+}
+
+
+.modal-content .form-control,
+.modal-content .btn,
+.assetIT-main-process_multiple_list .btn{
+    border-radius: 0;
+}
+.modal-content div.other-category{
+    margin-top: 15px;
+}
+.modal-content ul.dropdown-menu{
+    font-size: 13px;
+    border-radius: 0;
+}
+.modal-content textarea{
+    resize: none;
+}
+.modal-content label {
+    font-weight: 600;
+}
+.modal-content .radio label,
+.modal-content .checkbox label {
+    font-weight: 400;
+}
+.modal-content label > span{
+    color: #A94442;
+}
+.modal-content .help-block,
+.modal-content .other-category{
+    display: none;
+}
+.assetIT-main-feedback-mood_container{
+    padding-top: 10px;
+    clear: both;
+    content: " ";
+    display: table;
+}
+.assetIT-main-feedback-mood_container > div{
+    float: left;
+    margin-right: 15px;
+}
+.assetIT-main-feedback-mood_container .thumbnail{
+    margin-bottom: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 0 3px #ddd;
+}
+.assetIT-main-feedback-mood_container a.thumbnail:focus{
+    outline: none;
+    box-shadow: 0 0 3px #0089c4;
+}
+.assetIT-main-feedback-mood_container .btn > img{
+    width: 100%;
+}
+.assetIT-main-feedback-mood_container .btn,
+.assetIT-main-feedback-mood_container .btn-primary,
+.assetIT-main-feedback-mood_container .btn-primary.active {
+    background: transparent;
+    border: none;
+    }
+.assetIT-main-feedback-mood_container .active > img {
+    border-radius: 50%;
+    box-shadow: 0 0 5px 5px #ccc;
+    border: 1px solid #e1e1e1;
+}
+.assetIT-main-feedback-mood_container .btn.active,
+.assetIT-main-feedback-mood_container .btn:active,
+.assetIT-main-feedback-mood_container label.active {
+    box-shadow: none;
+}
+.assetIT-main-feedback-mood_container label {
+    width: 33.3%;
+}
+
+.assetIT-main-feedback_thankyou_block{
+    margin-left: auto;
+    margin-right: auto;
+    color: #666;
+    font-size: 13px;
+}
+.assetIT-main-feedback_thankyou_block i.glyphicon{
+    color: #8ad13a;
+    font-size: 30px;
+    float: none;
+    display: inline-block;
+}
+.assetIT-main-feedback_thankyou_block > h3{
+    color: #0089c4;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+
+
+
+
+/*****************************************************************************/
+/*                             L O A D I N G                                 */
+/*****************************************************************************/
+/*
+    NOTES  :
+ 	-----------------------------------
+	 - .loading refers to text and/or a an animation that displays after a button click, usually hiding the button and replacing it with .loading
+
+*/
+/************* PRELOADER STYLING ***************/
+ .block-ui-overlay {
+    z-index: 10001;
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #333;
+    opacity: .3;
+}
+
+body > .block-ui > .block-ui-overlay {
+    position: fixed;
+}
+
+.block-ui-overlay.block-ui-visible {
+    background-color: #fff;
+    opacity: 0.1;
+    -ms-filter:"alpha(opacity=10)";
+    cursor: wait;
+}
+
+.block-ui-message-container {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    right: 0;
+    height: 100%;
+    text-align: left;
+    z-index: 10002;
+    width: 166px;
+    margin-left: -83px;
+    height: 40px;
+}
+
+body > .block-ui > .block-ui-message-container {
+    position: fixed;
+}
+
+.block-ui-message {
+    cursor: wait;
+    display: inline-block;
+    text-align: left;
+    color: #555;
+    font-size: 14px;
+    border: 1px solid #999;
+    padding: 6px 20px 4px;
+    border-radius: 3px;
+    background: #fff;
+    }
+.loader-img {
+    background: url("../../images/Preloader_2.gif") 0 -21px no-repeat;
+    width: 60px;
+    height: 23px;
+    display: inline-block;
+    float: right;
+}
+
+/******************   END PRELOADER STYLING   *******************/
+.mdbodyCustom{
+    max-height:200px;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+.processList{
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+
+
+.feedback-popup .modal-dialog {
+            width: 450px !important;
+            padding: 7px;
+        }

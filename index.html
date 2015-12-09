@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <base href="#">
+    <title>Asset Management Platform</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,IE=10">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/images/Icon-60@3x.png" />
+    <style type="text/css">
+        @import url('assets/css/main.css');
+    </style>
+
+</head>
+<body>
+    <div class="preloader" id="pageLoader">
+        <div class=" block-ui-overlay"></div>
+        <div class="block-ui-message-container">
+            <div class="block-ui-message">Loading <span class="loader-img"></span></div>
+        </div>
+    </div>
+    <div id="placeHolderLoading">
+        <div class="preloader" id="dataLoader" style="display:none">
+            <div class=" block-ui-overlay"></div>
+            <div class="block-ui-message-container">
+                <div class="block-ui-message">Loading <span class="loader-img"></span></div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <header>
+            <!--Navigation start-->
+            <nav class="navbar assetIT-header-nav navbar-static-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" ng-show='loginActive' data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="assetIT-header-logo" href="#/"><img src="assets/images/pgelogo.png" /></a>
+                    </div>
+                    <div id="dynamic-header-info"></div>
+                </div>
+            </nav>
+            <!--Navigation ends-->
+            <!-- Site Alert start -->
+            <!--<div id="dynamic-site-alert"></div>-->
+            <!-- Site Alert ends -->
+        </header>
+
+        <div class="clearfix"></div>
+        <!--Content start-->
+        <main class="container-fluid">
+            <div ng-view class="assetIT-main-view_container"></div>
+        </main>
+        <div id="notSupported" style="display: none">
+            <h1 class="text-center">Asset Management Platform</h1>
+            <h4 class="text-center">Your browser is not supported</h4>
+            <p class="text-center">Please use IE 10.x or higher version or other browser(s) such as Chrome/Safari/Firefox</p>
+            <p class="text-center">In IE10, access the menu by pressing the ALT key to bring up the top menu and the go to Tools > Developer Tools, or press F12 on your keyboard
+            <p class="text-center">In the bottom window of your web browser a new row will appear starting with "File"</p>
+            <p class="text-center">Click on Browser Mode and change it to IE10 (NOT the IE 10 Compatibility View)</p>
+            <p class="text-center">Click on Document Mode and change it to IE10 standards</p>
+        </div>
+        <!--Footer start-->
+        <footer class="assetIT-footer">
+            <div class="container-fluid">
+                <div style="float: left;">
+                    Powered by <a href="http://www.wize.me" target="_blank"><img src="assets/images/wize-logo.png" class="assetIT-footer-wize_logo" /></a>
+                </div>
+                <div id="dynamic-footer-info"></div>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <!-- START: Browser Detection -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var get_browser_info = function (){
+                var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
+                if(/trident/i.test(M[1])){
+                    tem=/\brv[ :]+(\d+)/g.exec(ua) || [];
+                    return {name:'IE',version:(tem[1]||'')};
+                }
+                if(M[1]==='Chrome'){
+                    tem=ua.match(/\bOPR\/(\d+)/);
+                    if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+                }
+                M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+                if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+                return {
+                    name: M[0],
+                    version: M[1]
+                };
+            };
+            var browsers = {
+                "MSIE": 10
+            };
+            var browserInfo = get_browser_info();
+            if(browserInfo.name){
+                localStorage.setItem("isSafari", browserInfo.name.toLowerCase() == 'safari' ? true : false);
+            };
+            if(browsers[browserInfo.name] && browserInfo.version < browsers[browserInfo.name]) {
+                $("#notSupported").show();
+                $("#pageLoader").hide();
+                $('.container-fluid').hide();
+            }else{
+                //Support Debugging in Webstorm , Older code was not letting debug in webstorm.
+                var element = document.createElement("script");
+                element.src = "assets/libs/require.js";
+                element.setAttribute('data-main','app/appConfig.js');
+                document.body.appendChild(element);
+                //$('body').append('<script data-main=\"app/appConfig\" src=\"assets/libs/require.js\"><\/script>');
+            }
+        });
+    </script>
+    <!-- END: Browser Detection -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="assets/libs/html5shiv.min.js"></script>
+    <script type="text/javascript" src="assets/libs/respond.min.js"></script>
+    <![endif]-->
+
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+{
+    "baseUrl": {
+        "authServiceUrl": "http://104.236.143.151:1338/",
+        "baseServiceUrl": "http://appmap.wizeapi.com/api/",
+        "simulateServiceUrl" : "http://appmap.wize.me/api/test/",
+        "infraSimulate": false,
+        "sendErrorInMail":false,
+        "errorEmailReceipient" :"hemant@wizni.com",
+        "secureUrl": "secure/"
+
+    },
+    "environments":{
+        "activeEnvironment":"DEV",
+        "info": {
+            "DEV":{ "href": "#", "text": "AMPS - Development" },
+            "QA":{ "href": "#", "text": "AMPS - QA" },
+            "PROD":{ "href": "#", "text": "AMPS - Production" }
+        }
+    },
+    "options" :{
+        "frontEndVersion": "8"
+    },
+    "userRoles": {
+        "admin": 1,
+        "nercCip": 2,
+        "enterprise": 3
+    },
+    "autoLogOutMinutes": 30,
+    "externalLinks" :[
+        {
+            "label": "AHI",
+            "url": "http://ahi.wizni.com/#/",
+            "active": true,
+            "params": ["fullName", "user", "lanid", "userRole"],
+            "method": "POST"
+        },
+        {
+            "label": "ACE",
+            "url": "http://ace.wizni.com/#/",
+            "active": true,
+            "params": ["token", "fullName", "user", "lanid", "userRole"],
+            "roles": [3],
+            "method": "GET"
+        }
+    ],
+    "besDefaultColumns":[
+        {
+            "sheetName": "Site",
+            "defaultColumns": [
+                {
+                    "id": "SiteType",
+                    "label": "Site Type"
+                },
+                {
+                    "id": "HighestCIPV5BCSImpactRating",
+                    "label": "Highest CIP V5 BCS Impact Rating"
+                },
+                {
+                    "id": "FutureV5BCSImpactRating",
+                    "label": "Future V5 BCS Impact Rating"
+                }
+            ]
+        },
+        {
+            "sheetName": "CyberSystem",
+            "defaultColumns": [
+                {
+                    "id": "SystemFunctionPurposeorSupporttoBROS",
+                    "label": "System Function, Purpose or Support to BROS"
+                },
+                {
+                    "id": "BESCyberSystemBCS",
+                    "label": "BES Cyber System (BCS)"
+                },
+                {
+                    "id": "HighestCIPV5BCSImpactRating",
+                    "label": "Highest CIP V5 BCS Impact Rating"
+                },
+                {
+                    "id": "BESCyberSystemOwnerBCSO",
+                    "label": "BES Cyber System Owner (BCSO)"
+                }
+            ]
+        },
+        {
+            "sheetName": "CyberAsset",
+            "defaultColumns": [
+                {
+                    "id": "SiteImpactRating",
+                    "label": "Site Impact Rating"
+                },
+                {
+                    "id": "CyberSystem",
+                    "label": "Cyber System"
+                },
+                {
+                    "id": "CyberAssetType",
+                    "label": "Cyber Asset Type"
+                }
+            ]
+        },
+        {
+            "sheetName": "Decommissioned",
+            "defaultColumns": [
+                {
+                    "id": "SiteImpactRating",
+                    "label": "Site Impact Rating"
+                },
+                {
+                    "id": "CyberSystem",
+                    "label": "Cyber System"
+                },
+                {
+                    "id": "CyberAssetType",
+                    "label": "Cyber Asset Type"
+                }
+            ]
+        },
+        {
+            "sheetName": "ChangeLog",
+            "defaultColumns": [
+                {
+                    "id": "Date",
+                    "label": "Date"
+                },
+                {
+                    "id": "Activity",
+                    "label": "Activity"
+                },
+                {
+                    "id": "ModifiedBy12",
+                    "label": "Modified By: 1.2"
+                },
+                {
+                    "id": "SourceofChangeCoordinatedWith",
+                    "label": "Source of Change/Coordinated With:"
+                }
+            ]
+        },
+        {
+            "sheetName": "EACMS",
+            "defaultColumns": [
+                {
+                    "id": "CyberSystemCyberAssetFunction",
+                    "label": "Cyber System / Cyber Asset Function"
+                },
+                {
+                    "id": "CyberAssetType",
+                    "label": "Cyber Asset Type"
+                },
+                {
+                    "id": "CyberAssetLocations",
+                    "label": "Cyber Asset Locations"
+                }
+            ]
+        },
+        {
+            "sheetName": "PACS",
+            "defaultColumns": [
+                {
+                    "id": "CyberSystemCyberAssetFunction",
+                    "label": "Cyber System / Cyber Asset Function"
+                },
+                {
+                    "id": "CyberAssetType",
+                    "label": "Cyber Asset Type"
+                },
+                {
+                    "id": "CyberAssetLocation",
+                    "label": "Cyber Asset Location"
+                }
+            ]
+        }
+    ]
+}

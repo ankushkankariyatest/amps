@@ -1,0 +1,32 @@
+<button type="button" class="close" aria-label="Close" data-ng-click="modalOptions.close()"><span>×</span></button>
+<div ng-if = "!modalOptions.isDiff" style="text-align: center">
+    <h2>Both the versions are same.</h2>
+</div>
+<div ng-if="modalOptions.isDiff">
+    <h1 class="model-heading">Version History Difference</h1>
+    <div class="form-group">
+        <!--    <div class="row">
+                <div id="visualDiff" differnce-comparor  prev-model="modalOptions.prev" next-model="modalOptions.current"></div>
+            </div>-->
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-sm-4"><h3>Attributes</h3></div>
+                <div class="col-sm-4"><h3>Version {{modalOptions.currentVersion}} ({{modalOptions.currentVersionDate | date:'MMM d yyyy h:mm a'}})</h3></div>
+                <div class="col-sm-4"><h3>Version {{modalOptions.selectedVersion}} ({{modalOptions.selectedVersionDate | date:'MMM d yyyy h:mm a'}})</h3></div>
+            </div>
+        </div>
+        <div class="col-xs-12" ng-repeat="key in modalOptions.compareKeysData track by $index" ng-if="modalOptions.selectedVersionData[key] !== modalOptions.currentRowVersionData[key]" ng-class="{diffRow: modalOptions.selectedVersionData[key] !== modalOptions.currentRowVersionData[key]}">
+            <div class="row">
+                <div class="col-sm-4"> <b> {{cols[key] ? cols[key] : key}}</b></div>
+                <div class="col-sm-4"
+                     ng-class="{diffCurrent: modalOptions.selectedVersionData[key] !== modalOptions.currentRowVersionData[key]}">{{modalOptions.currentRowVersionData.hasOwnProperty(key) ? modalOptions.currentRowVersionData[key] : 'Not defined'}}</div>
+                <div class="col-sm-4"
+                     ng-class="{diffSelected: modalOptions.selectedVersionData[key] !== modalOptions.currentRowVersionData[key]}">{{modalOptions.selectedVersionData.hasOwnProperty(key) ? modalOptions.selectedVersionData[key] : 'Not defined'}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="text-right marginT20">
+    <button class="btn btn-default" data-ng-click="modalOptions.close()">Cancel</button>
+</div>

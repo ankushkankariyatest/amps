@@ -1,0 +1,10 @@
+
+base.js
+----------------
+modules/common/services/popup.service.js
+modules/auth/models/auth.factory.js
+modules/auth/models/auth.model.js
+modules/auth/services/auth.service.js
+modules/common/services/header-footer.js
+modules/common/services/storage.factory.js
+base.js

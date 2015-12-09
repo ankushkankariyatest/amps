@@ -1,0 +1,46 @@
+<div ng-controller="auditLogsController" ng-init = "initializeController()" class="audit-log">
+    <div asset-it-filter-options filter-grid-record="filterGridRecord" search-text-data="searchTextData" filtered-state="filteredState" export-to="exportOption"></div>
+    <div class="clearfix"></div>
+    <div class="col-xs-12">
+        <fieldset>
+            <legend>Advanced Filter</legend>
+            <div class="col-xs-3">
+                <label for="activityLog">Activity Log</label>
+                    <select id="activityLog" class="form-control" ng-options="activityLog as activityLog for activityLog in activityLogs" ng-model="selectedActivityLog">
+                        <option value="" disabled="disabled">Please Select</option>
+                    </select>
+            </div>
+            <div class="col-xs-2">
+                <label for="fromDatepicker">From Date</label>
+                <input id="fromDatepicker" kendo-date-picker style="box-sizing: content-box; width:100%"
+                       ng-model="fromDateString"
+                       k-ng-model="fromDateObject"
+                       k-max="maxDate"
+                       k-rebind="maxDate"
+                       k-on-change="fromDateChanged()"
+                       ng-required/>
+            </div>
+            <div class="col-xs-2">
+                <label for="fromDatepicker">To Date</label>
+                <input id="toDatepicker" kendo-date-picker style="box-sizing: content-box; width:100%"
+                       ng-model="toDateString"
+                       k-ng-model="toDateObject"
+                       k-max="maxDate"
+                       k-rebind="maxDate"
+                       ng-required/>
+            </div>
+            <div class="col-xs-2 pull-left">
+                <label>&nbsp;</label>
+                <button class="btn btn-primary marginT20" ng-disabled="selectedActivityLog == '' && !fromDateObject && !toDateObject" ng-click="filterApplied = true; advancedFilter();">GO</button>
+                &nbsp;&nbsp;<a ng-if="filterApplied" class="btn marginT20" href="javascript:void(0);" ng-click="clearFilter();">Clear Filter</a>
+            </div>
+            <div class="col-xs-12">
+                <hr>
+            </div>
+        </fieldset>
+    </div>
+    <div class="clearfix"></div>
+    <div class="application-container mobile-fix">
+        <div id="grid" class="app-table-bdr gridRequiredClass" kendo-plugin config="auditLogsConfig" search-text-data="searchTextData" grid-options="auditLogsConfig" filter-grid-fn="filterGrid" highlight-fn="highlight" show-popup="showPopup" custom-fn="customFn" export-to="exportOption"></div>
+    </div>
+</div>

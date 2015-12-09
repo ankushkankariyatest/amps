@@ -1,0 +1,1 @@
+!function(){"use strict";define(["assetIt","ajax-service"],function(e){e.register.factory("commonService",["ajaxService",function(r){var e={};return e.getAppVersion=function(){var e={method:"GET",url:"version"};return r.http(e)},e}])})}();

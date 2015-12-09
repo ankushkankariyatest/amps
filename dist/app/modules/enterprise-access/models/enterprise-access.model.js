@@ -1,0 +1,1 @@
+!function(){"use strict";define(["assetIt"],function(t){t.register.factory("infrastructureModel",["$compile",function(r){var t={};return t.dataList=function(){var t=[];return t},t}])})}();

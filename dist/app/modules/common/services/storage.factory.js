@@ -1,0 +1,1 @@
+!function(){"use strict";define(["assetIt"],function(t){var t=angular.module("assetStorage",[]);t.factory("svcStorage",["$cacheFactory","$window",function(e,o){var t=e("cache"),n={put:function(e,n){t.put(e,n)},get:function(t){return!1},remove:function(e){t.remove(e)},removeAll:function(){t.removeAll()},destroy:function(){t.info()}};return n}])})}();

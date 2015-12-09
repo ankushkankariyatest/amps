@@ -1,0 +1,16 @@
+<div>
+    <div id="exceptionDataGrid" class="app-table-bdr gridRequiredClass importExel-grid" kendo-plugin
+         config="exceptionDataConfig" show-popup="showPopup"></div>
+</div>
+<div class="pull-right grid-top-btn" ng-show = "!isSafari">
+    <a class="btn-excel hidden-xs" ng-click="exportGridExcel()" title="Export to Excel"><i class="icon-excel"></i></a>
+</div>
+<script type="text/x-kendo-template" id="exceptionTemplate">
+    <div class="detailtabstrip">
+        <!-- tab list -->
+        <ul>
+            <li>Detail</li>
+        </ul>
+        <div site-general-details row-data="data.generalItem" cols="data.cols" group-data="data.groupsData" tab-title='General'></div>
+    </div>
+</script>

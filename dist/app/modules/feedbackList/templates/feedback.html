@@ -1,0 +1,68 @@
+<div ng-controller=feedbackListController ng-init=initializeController()><div asset-it-filter-options filter-grid-record=filterGridRecord search-text-data=searchTextData filtered-state=filteredState export-to=exportOption></div><div class=clearfix></div><div class="application-container mobile-fix"><div id=grid class="app-table-bdr gridRequiredClass" kendo-plugin config=config search-text-data=searchTextData grid-options=config filter-grid-fn=filterGrid highlight-fn=highlight show-popup=showPopup custom-fn=customFn export-to=exportOption></div></div><script type=text/x-kendo-template id=appTemplate><div class="visible-xs col-xs-12">
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Email: </label></div>
+                <div class="col-xs-6"><label>#: EMAIL #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Context: </label></div>
+                <div class="col-xs-6"><label>#: CONTEXT #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Work Order: </label></div>
+                <div class="col-xs-6">
+                    #if (WORK_ORDER) {#
+                    <label><a href="#: LINK #" target="_blank">#: WORK_ORDER #</a></label>
+                    #} #
+                </div>
+            </div>
+
+            <!--<div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Mood: </label></div>
+                <div class="col-xs-6"><label>#: MOOD #</label></div>
+            </div>-->
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Status: </label></div>
+                <div class="col-xs-6"><label>#: STATUS #</label></div>
+            </div>
+        </div>
+        <div class="feedback-detail-container hidden-xs">
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Context ID:</label></div>
+                <div class="col-md-3 col-sm-4"><label>#: IDENTIFIER #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Description: </label></div>
+                <div class="col-md-3 col-sm-4"><label class="breakWord">#: DESCRIPTION #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Request Number: </label></div>
+                <div class="col-md-3 col-sm-4">
+                    #if (REQUEST_NUMBER) {#
+                    <label>#: REQUEST_NUMBER #</label>
+                    #} #
+                </div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Link: </label></div>
+                <div class="col-md-3 col-sm-4">
+                    #if (LINK) {#
+                    <label class="breakWord">#: LINK #</label>
+                    #} #
+                </div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-md-3 col-sm-4"><label>Mood: </label></div>
+                <div class="col-md-3 col-sm-4"><label class="breakWord">#: MOOD #</label></div>
+            </div>
+        </div></script></div><script type=text/x-kendo-template id=errormsg-template><span class="text-danger">#=message#</span></script><script type=text/x-kendo-template id=href-template>#if (WORK_ORDER) {#
+    <a href="#: LINK #" target="_blank">#: WORK_ORDER #</a>
+    #} else {#
+
+    #} #</script>

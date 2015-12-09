@@ -1,0 +1,50 @@
+<!--Registration start-->
+<div ng-cloak>
+    <div class="row assetIT-main-register_container">
+
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 assetIT-main-login_container">
+            <h1>Register with Active Directory Account</h1>
+            <form name="registerForm" novalidate="novalidate">
+                <p class="text-center bg-danger">
+                    {{ registerViaADController.serverError }}
+                </p>
+                <div class="form-group" ng-class="{'has-error': registerViaADController.user.error.userNameError}">
+                    <input type="text" class="form-control" placeholder="Enter AD User Name" ng-model="registerViaADController.user.userName" autocapitalize="off" autocorrect="off">
+                    <div class="text-danger"> {{ registerViaADController.user.error.userNameError }}</div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': registerViaADController.user.error.fullNameError}">
+                    <input type="text" class="form-control" placeholder="Full Name" ng-model="registerViaADController.user.fullName">
+                    <div class="text-danger"> {{ registerViaADController.user.error.fullNameError }}</div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': registerViaADController.user.error.companyNameError}">
+                    <input type="text" class="form-control" placeholder="Company Name" ng-model="registerViaADController.user.companyName">
+                    <div class="text-danger"> {{ registerViaADController.user.error.companyNameError }}</div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': registerViaADController.user.error.passwordError}">
+                    <input type="password" class="form-control" placeholder="Password" ng-model="registerViaADController.user.password">
+                    <div class="text-danger"> {{ registerViaADController.user.error.passwordError }}</div>
+                </div>
+                <div class="form-group" ng-class="{'has-error': registerViaADController.user.error.confirmPasswordError}">
+                    <input type="password" class="form-control" placeholder="Confirm Password" ng-model="registerViaADController.user.confirmPassword">
+                    <div class="text-danger"> {{ registerViaADController.user.error.confirmPasswordError }}</div>
+                </div>
+                <div class="checkbox chk-admin-privilege">
+                    <label>
+                        <input type="checkbox" ng-model="registerViaADController.user.isRequestForAdminAccess"> Request Admin Access
+                    </label>
+                </div>
+                <p class="agreement-msg">
+                    By creating an account, you agree to PGE’s Terms of Services for Asset Management Platform.
+                </p>
+                <button class="btn btn-block btn-lg btn-primary" ng-click="registerViaADController.registerADUser()">Register</button>
+                <span id="unAuth" class="help-block"></span>
+            </form>
+            <div>
+                <p class="text-center">
+                    Already Registerd with AMPS? <a href="#login">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Registration ends-->

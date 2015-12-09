@@ -1,0 +1,217 @@
+/*   BASE  > Base rules for navigation
+
+     Use, ONLY AS NECESSARY, to style NAVIGATIONAL pieces
+	 -----------------------------------------------------------
+	 1) Styles should NOT apply to a specific carrier
+            a) For example, if rules specify a color for a specific carrier, add those rules to CARRIER or APP
+
+     2) Navigational pieces include menus, tabs, and subtabs 
+
+
+     This style sheet is for:
+     --------------------------      
+      - site-nav
+	  - tabs-main
+	  - sidebar-subnav 
+	  - profile-tabs
+	  - .nav-subsection-links
+	  - #nav-subsection
+
+*/
+
+/*************************************************************/
+/*                  S I T E     N A V                        */
+/*************************************************************/
+
+/***Navigation***/
+/***********************************
+Asset IT App,
+Version: 1.0,
+Description: Works for PGE-Asset IT Solutions: header section,
+Author: Wizni Developer
+***********************************/
+
+/*--HEADER--*/
+/*Navigation*/
+.assetIT-header-nav {
+  background-color: #0089c4;
+  border-bottom: none;
+}
+.assetIT-header-nav .navbar-text {
+  color: #fff;
+}
+.assetIT-header-nav .navbar-nav > li > a {
+  color: #fff;
+}
+
+.assetIT-header-nav .navbar-nav > li > a:hover,
+.assetIT-header-nav .navbar-nav > li > a:focus {
+  /*color: #fff;
+  background-color: transparent;*/
+  color: #0089c4;
+  background-color: #f1f1f1;
+}
+
+.assetIT-header-nav .navbar-nav > .active > a,
+.assetIT-header-nav .navbar-nav > .active > a:hover,
+.assetIT-header-nav .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #ffa100;
+  /*background-color:#006B98;
+  font-weight: 600;
+  box-shadow:0 15px 5px -16px #333;*/
+  outline: none;
+}
+.assetIT-header-nav .navbar-nav > .disabled > a,
+.assetIT-header-nav .navbar-nav > .disabled > a:hover,
+.assetIT-header-nav .navbar-nav > .disabled > a:focus{
+  color: #5abee9;
+  background-color: transparent;
+}
+.assetIT-header-nav .navbar-toggle {
+  border-color: #f5f5f5;
+}
+.assetIT-header-nav .navbar-toggle:hover,
+.assetIT-header-nav .navbar-toggle:focus {
+  background-color: #0089c4;
+}
+.assetIT-header-nav .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+.assetIT-header-nav .navbar-collapse,
+.assetIT-header-nav .navbar-form {
+  border-color: #0089c4;
+}
+.assetIT-header-nav .navbar-nav > .open > a,
+.assetIT-header-nav .navbar-nav > .open > a:hover,
+.assetIT-header-nav .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #ffa100;
+  /*background-color:#006B98;*/
+}
+
+.assetIT-header-nav .navbar-link {
+  color: #fff;
+}
+.assetIT-header-nav .navbar-link:hover {
+  color: #fff;
+}
+.assetIT-header-nav .btn-link {
+  color: #fff;
+}
+.assetIT-header-nav .btn-link:hover,
+.assetIT-header-nav .btn-link:focus {
+  color: #fff;
+}
+.assetIT-header-nav .btn-link[disabled]:hover,
+fieldset[disabled] .assetIT-header-nav .btn-link:hover,
+.assetIT-header-nav .btn-link[disabled]:focus,
+fieldset[disabled] .assetIT-header-nav .btn-link:focus {
+  color: #444;
+}
+.assetIT-header-nav_welcome_txt{
+    padding-top: 16px;
+    padding-bottom: 15px;
+    vertical-align: bottom;
+    font-weight:600;
+    
+}
+#account-menu {
+    padding: 0;
+    border-radius: 0;
+}
+#account-menu li a {
+    padding: 8px 20px;
+    color:#0089c4; 
+    }
+    #account-menu li {
+    border-top: 1px solid #e1e1e1;
+    }
+#account-menu li:first-child {
+    border-top: 0 solid #e1e1e1;
+
+}
+.assetIT-main-top-right>li>a.dropdown-toggle {
+    color: #e1e1e1;
+}
+.assetIT-main-top-right > li > a.dropdown-toggle:hover {
+    background-color: transparent;
+    color: #fff;
+    }
+
+.assetIT-header-nav .navbar-nav.assetIT-main-top-right > li > a{color:#e1e1e1;}
+.assetIT-header-nav .navbar-nav.assetIT-main-top-right > li > a:hover, 
+.assetIT-header-nav .navbar-nav.assetIT-main-top-right > li > a:focus {
+    color: #fff;
+    background-color: transparent;
+}
+
+
+
+.assetIT-header-nav .assetIT-main-top-right > .open > a,
+.assetIT-header-nav .assetIT-main-top-right > .open > a:hover,
+.assetIT-header-nav .assetIT-main-top-right > .open > a:focus {
+  color: #fff;
+  background-color: transparent;
+  /*background-color:#006B98;*/
+}
+
+
+
+/*Logo*/
+.assetIT-header-logo{
+    display:inline-block;
+    margin:5px 20px 5px 0px;
+}
+
+.assetIT-header-logo img {
+    width: auto;
+    height: 40px;
+    border:0px;
+}
+
+/*--RESPONSIVE STYLES--*/
+@media (max-width: 767px) {
+    /*Navigation*/
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > .dropdown-header {
+    border-color: #0089c4;
+  }
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu .divider {
+    background-color: #ffa100;
+  }
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > li > a {
+    color: #fff;
+  }
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > li > a:hover,
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #fff;
+    background-color: transparent;
+  }
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > .active > a,
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #fff;
+    background-color: #ffa100;
+  }
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > .disabled > a,
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .assetIT-header-nav .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #888;
+    background-color: transparent;
+  }
+  /*Logo*/
+  .assetIT-header-logo{
+      margin:5px 20px 5px 15px;
+  }
+    #account-menu {
+        background-color: #f1f1f1;
+    }
+    #account-menu li a:hover {
+        background: #e1e1e1;
+        color: #666;
+    }
+   #account-menu li:first-child {
+    border-top: 1px solid #e1e1e1;
+
+}
+}

@@ -1,0 +1,247 @@
+<div class="application-wrapper" ng-controller="appController" ng-init="initializeController()" ng-cloak>
+    <div asset-it-filter-options filter-grid-record="filterGridRecord" search-text-data="searchTextData" filtered-state="filteredState" export-to="exportOption"></div>
+    <!--<div class="dropdown group-filter">
+        <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="#infra-filter-menu">
+            <span class="assetIT-header-nav_welcome_txt"><span class="caret"></span></span></a>
+        <ul id="infra-filter-menu" class="dropdown-menu" role="menu">
+            <li ng-repeat="(k, v) in applicationGroupByColumns.columns" ><a href="javascript:void(0);" ng-click="applicationGroupByColumns.groupByCols(v)">{{ v.name }}</a></li>
+        </ul>
+    </div>-->
+
+    <div class="clearfix"></div>
+    <div class="application-container nerc-mobile-fix  nercExcelcol">
+      <div class="grouping-filter group-hdr-bg hidden-xs">
+            <div grid-grouping ng-hide="filteredState" options="groupingPlugin" class="grouping-container-left"></div>
+            <div grid-filtering ng-hide="filteredState" context='contextVal' key='filter' filter-preferences="filterPreferences" options="filteringPlugin" callback-filter="callbackFilter"></div>
+        </div>
+        <div id="grid" class="app-table-bdr gridRequiredClass assetIT-main-view_container group-footer-bg" kendo-plugin search-text-data="searchTextData" config="config" grid-options="config" filter-grid-fn="filterGrid" highlight-fn="highlight" show-popup="showPopup" custom-fn="customFn" export-to="exportOption" filter-grid-by-filter-plugin="filterGridByFilterPlugin"></div>
+    </div>
+    <script type="text/x-kendo-template" id="template">
+        <div class="visible-xs col-xs-12">
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>App ID:</label></div>
+                <div class="col-xs-6"><label>#: APP_ID #</label></div>
+            </div>
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>MCPs:</label></div>
+                <div class="col-xs-6"><label>
+                    #if (processInfo.length > 1) {#
+                    <a class="processDetailMultiple"><i>#: modifiedProcessValue # [#: processInfo.length #] </i></a>
+                    #} else {#
+                    #if( processInfo[0] !=undefined && processInfo[0].DESCRIPTION != undefined){#
+                    <a class="processLink" href="\\#/mcps/#:modifiedProcessValue #" data-multiple="false" title="#:processInfo[0].DESCRIPTION #" data-toggle="tooltip">#:modifiedProcessValue #</a>
+                    #} }#
+                </label></div>
+
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>LOBs: </label></div>
+                <div class="col-xs-6"><label>
+                    # if (lobInfo.length > 1) { #
+                    <a class="lobDetailMultiple"><i>#: modifiedLobValue # [#: lobInfo.length #] </i></a>
+                    # } else { #
+                    <a class="lobLink" href="\\#/lobs?name=#: modifiedLobValue #" data-multiple="false">#: modifiedLobValue #</a>
+                    # } #
+                </label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>IT Core Service Group: </label></div>
+                <div class="col-xs-6"><label>#: IT_CORE_SERVICE #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Status: </label></div>
+                <div class="col-xs-6"><label>#: STATUS #</label></div>
+            </div>
+
+            <div class="row assetIT-main-app_details_block">
+                <div class="col-xs-6"><label>Feedback: </label></div>
+                <div class="col-xs-6"><label>#: COUNT #</label></div>
+            </div>
+        </div>
+        <div class="tabstrip">
+            <ul>
+                <li class="k-state-active">General</li>
+                <li>BIA</li>
+                <li>Ownership</li>
+                <li>DR</li>
+                <li>Infrastructure</li>
+                <li class="certifiedApp" attr-id="#: APP_ID #">Certification
+                    <span class="#= CertificationTotalCount ? '' : 'hide' #"></span>
+                    <span class="certificationCount#: APP_ID #"></span> <span class="certified_count">#: CertificationCount # <i class="icon_certified_count"></i> </span>
+                    <span class="rejected_count">#: CertificationRejectCount # <i class="icon_rejected_count"> </i></span>
+                </li>
+                <li class="feedbackTicket" attr-id="#: APP_ID #">Feedback <span class="#= COUNT ? '' : 'hide' #">(<span class="feedbackCount#: APP_ID #">#: COUNT #</span>)</span></li>
+            </ul>
+            <div>
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>App ID:</label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: APP_ID #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Status: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: STATUS #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Asset Type: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: ASSET_TYPE #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Information classification: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: INFORMATION_CLASSIFICATION #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Asset Description: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: ASSET_DESCRIPTION #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Service or Application Acronym: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: SERVICE_OR_APPLICATION_ACRONYM #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Onboard Flag: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: ONBOARD_FLAG #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Display Name: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: DISPLAY_NAME #</label></div>
+                </div>
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Compliance Requirement: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: COMPLIANCE_REQUIREMENTS #</label></div>
+                </div>
+            </div>
+            <div>
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Business Criticality: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: BUSINESS_CRITICALITY #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Design Tier: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: DESIGN_TIER #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>BIA Tier: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: BIA_TIER # </label></div>
+                </div>
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>BIA Number: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: PGE_BIA_NUM # </label></div>
+                </div>
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>BIA Date: </label></div>
+                        <div class="col-md-3 col-sm-4"><label>#: new Date(PGE_BIA_DATE).toLocaleString() # </label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Client RPO: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: CLIENT_RPO #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Client RTO: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: CLIENT_RTO #</label></div>
+                </div>
+            </div>
+            <div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>IT Group: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: IT_GROUP #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Managed By: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: MANAGED_BY #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Client Owner: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: CLIENT_OWNER #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>IT SME : </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: IT_SME #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>IT SME BU: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: IT_SME_BU #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>IT Director: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: IT_DIRECTOR #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>IT Lead: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: IT_LEAD # </label></div>
+                </div>
+            </div>
+            <div>
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>PGE DR Plan: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: PGE_DR_PLAN #</label></div>
+                </div>
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>PGE DR Plan Name: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: PGE_DR_PLAN_NAME #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>PGE DR Document Number: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: PGE_DR_DOCUMENT_NUM #</label></div>
+                </div>
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>PGE DR Plan Executor: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: PGE_DR_PLAN_EXECUTOR #</label></div>
+                </div>
+            </div>
+            <div>
+                # if (isEnterprise) { #
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Network: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: NETWORK #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Primary DC: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: PRIMARY_DC #</label></div>
+                </div>
+
+                <div class="row assetIT-main-app_details_block">
+                    <div class="col-md-3 col-sm-4"><label>Secondary DC: </label></div>
+                    <div class="col-md-3 col-sm-4"><label>#: SECONDARY_DC #</label></div>
+                </div>
+
+                <div class="assetIT-main-app_details_block marginT20 infrastructure-btn">
+                    <div app-infra-tab-wrapper key="#: APP_ID #"></div>
+                </div>
+                # } else { #
+                <p style="color:red">
+                    You are not authorized to view this information. <a href="javascript:void(0);" ng-click="openEnterpriseAccess()">Click here</a> to request access.
+                </p>
+                # } #
+            </div>
+            <div>
+                <div id="certifyGrid" class="app-table-bdr gridRequiredClass certification-grid" kendo-plugin config="bacrConfig" show-popup="showPopup"></div>
+            </div>
+            <div>
+                <feedback-ticket context="application" app-id="#: APP_ID #" update-feedback-count="updateFeedbackCount" no-work-order=false></feedback-ticket>
+            </div>
+        </div>
+    </script>
+</div>

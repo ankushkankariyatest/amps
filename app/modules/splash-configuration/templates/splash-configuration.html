@@ -1,0 +1,67 @@
+<div class="infrastructure-tab application-wrapper" ng-controller="splashConfigurationController" ng-init="initializeController()" ng-cloak>
+    <div kendo-tab-strip k-content-urls="[ null, null]" class="noborder">
+        <!-- tab list -->
+        <ul>
+            <li class="k-state-active">Configure Announcement</li>
+            <li ng-click="initializeAlert();">Configure Site Alert</li>
+        </ul>
+        <div class="configure-wrapper">
+            <h4>Configure Announcements</h4>
+            <div class="row">
+                <div class="col-xs-12" ng-show="showAnnouncement">
+                    <label for="editor" class="control-label">Message:</label>
+                    <textarea id="announcementEditor" rows="3" cols="30" style="height:400px"></textarea>
+                </div>
+            </div>
+            <div class="row" ng-show="false">
+                <div class="col-xs-3 marginT10">
+                    <label for="messageCategory" class="control-label">Category:</label>
+                    <select class="form-control" id="announcementMessageCategory" data-ng-model = "announcements.messageType">
+                        <option value="" disabled="disabled">Please select the message type...</option>
+                        <option value="alert-info">Information</option>
+                        <option value = "alert-warning">Warning</option>
+                        <option value = "alert-danger">Alert</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 marginT10">
+                    <label for="messageIsActive" class="control-label">Is Active?&nbsp;&nbsp;</label><input type="checkbox" id="announcementMessageIsActive" data-ng-model = "announcements.isActive">
+                </div>
+            </div>
+            <div class="row col-xs-4">
+                <button type="button" class="btn btn-primary marginT10"  ng-click="saveAnnouncement()">Save Site Announcement</button>&nbsp;&nbsp;
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="configure-wrapper splash-configure">
+            <h4>Configure Site Alert</h4>
+            <div class="row">
+                <div class="col-xs-12">
+                    <label for="editor" class="control-label">Message:</label>
+                    <textarea id="editor" rows="3" cols="30" style="height:400px"></textarea>
+                </div>
+            </div>
+            <div class="row" ng-show="false">
+                <div class="col-xs-3 marginT10">
+                    <label for="messageCategory" class="control-label">Category:</label>
+                    <select class="form-control" id="messageCategory" data-ng-model = "alert.messageType">
+                        <option value="" disabled="disabled">Please select the message type...</option>
+                        <option value="alert-info">Information</option>
+                        <option value = "alert-warning">Warning</option>
+                        <option value = "alert-danger">Alert</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 marginT10">
+                    <label for="messageIsActive" class="control-label">Is Active?&nbsp;&nbsp;</label><input type="checkbox" id="messageIsActive" data-ng-model = "alert.isActive">
+                </div>
+            </div>
+            <div class="row col-xs-4">
+                <button type="button" class="btn btn-primary marginT10"  ng-click="saveSiteAlert()">Save Site Alert</button>&nbsp;&nbsp;
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

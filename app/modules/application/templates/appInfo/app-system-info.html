@@ -1,0 +1,15 @@
+<button type="button" class="close" aria-label="Close" data-ng-click="modalOptions.close()"><span>×</span></button>
+<h1 class="model-heading">Infrastructure On-boarding</h1>
+<div class="form-group" ng-controller="appSystemInfoController" ng-init="initCtrl()">
+    <div class="isa_success" style="display: none">
+       <b> <div id="successInfo"></div> </b>
+    </div>
+    <div class="isa_error" style="display: none">
+        <b> <div id="errorInfo"></div> </b>
+    </div>
+    <div id="systemInfoGrid" crud-kendo-grid key="{{appId}}" type='General' class="of-auto"></div>
+</div>
+<div class="text-right">
+    <button class="btn btn-primary" ng-show="showOnboard" data-ng-click="verifyOnboardData()" >Onboard</button>
+    <button class="btn btn-default" data-ng-click="modalOptions.close()">Close</button>
+</div>
